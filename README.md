@@ -10,6 +10,7 @@ Part 1 -server
 3) Create a new DataBase in MySQL  named chessdb.
 4) In the server folder under the folder resources you will find a file named application.properties,
     in the file change the 3 lines of code:
+   
    spring.datasource.url=jdbc:mysql://localhost:3306/chessdb ( the part of chessdb change to a different database if you wish to)
    
    spring.datasource.username="YOUR USERNAME"(usually its root if you didn't change it)
