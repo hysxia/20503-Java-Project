@@ -8,6 +8,7 @@
     <string name="welcome_message">Welcome to our Chess Game!</string>
     <string name="enter_username">Please enter your username:</string>
     <string name="enter_password">Please enter your password:</string>
+    <string name="enter_password_again">Please enter your password again:</string>
     <string name="enter_email">Please enter your email address:</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
