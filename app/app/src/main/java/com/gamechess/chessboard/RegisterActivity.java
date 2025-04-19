@@ -11,6 +11,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextUsername;
     private EditText editTextEmail;
     private EditText editTextPassword;
+
+    private EditText editTextPasswordAgain;
     private Button btnRegister;
     private Button btnReturn;
 
@@ -23,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.et_username);
         editTextEmail = findViewById(R.id.et_email);
         editTextPassword = findViewById(R.id.et_password);
+        editTextPasswordAgain = findViewById(R.id.et_password_again);
         btnRegister = findViewById(R.id.btn_register);
         btnReturn = findViewById(R.id.btn_return);
 
@@ -31,9 +34,17 @@ public class RegisterActivity extends AppCompatActivity {
             String username = editTextUsername.getText().toString().trim();
             String email = editTextEmail.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
+            String password_again = editTextPasswordAgain.getText().toString().trim();
+
+
 
             if(username.isEmpty() || email.isEmpty() || password.isEmpty()){
                 Toast.makeText(RegisterActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(!password.equals(password_again)){
+                Toast.makeText(RegisterActivity.this, "Passwords don't match, please enter the passwords again", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
