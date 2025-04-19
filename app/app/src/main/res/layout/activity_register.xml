@@ -70,6 +70,25 @@
         android:textColorHint="#8B0000"
         android:autofillHints="password"/>
 
+    <!-- Password Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_password_again"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/et_password_again"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#8B0000"
+        android:autofillHints="password"/>
+
     <!-- Email Input -->
     <TextView
         android:layout_width="wrap_content"
