@@ -29,13 +29,14 @@ public class UserService  {
     }
     // function to register a user
     public User registerUser(String username, String email, String rawPassword) {
+        //Duplicate username check
         if (userRepository.findByUsername(username) != null) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,"USERNAME_EXISTS");
         }
+        //Valid email check
         if (!isValidEmail(email)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-
         // Duplicate email check
         if (userRepository.findByEmail(email) != null) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,"EMAIL_EXISTS");
