@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".MainActivity">
+
+    <!-- Turn indicator at the top -->
+    <TextView
+        android:id="@+id/turn_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/turn"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#333333"
+        android:background="#E0E0E0"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:elevation="3dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+    <!-- =========================== -->
+    <!--       WHITE BOARD VIEW     -->
+    <!-- =========================== -->
+
+    <!-- White view: Black player at top -->
+    <TextView
+        android:id="@+id/black_player_white_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/black_player"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:background="#E0E0E0"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="2dp"
+        android:layout_above="@id/chessBoardWhite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp" />
+
+    <GridLayout
+        android:id="@+id/chessBoardWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="8"
+        android:columnCount="8"
+        android:layout_centerInParent="true" />
+
+    <!-- White view: White player at bottom -->
+    <TextView
+        android:id="@+id/white_player_white_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/white_player"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:background="#E0E0E0"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="2dp"
+        android:layout_below="@id/chessBoardWhite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- =========================== -->
+    <!--       BLACK BOARD VIEW     -->
+    <!-- =========================== -->
+
+    <!-- Black view: White player at top -->
+    <TextView
+        android:id="@+id/white_player_black_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/white_player"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:background="#E0E0E0"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="2dp"
+        android:layout_above="@id/chessBoardBlack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <GridLayout
+        android:id="@+id/chessBoardBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="8"
+        android:columnCount="8"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <!-- Black view: Black player at bottom -->
+    <TextView
+        android:id="@+id/black_player_black_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/black_player"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:background="#E0E0E0"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="2dp"
+        android:layout_below="@id/chessBoardBlack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
+    <!-- =========================== -->
+    <!--  Buttons pinned to bottom  -->
+    <!-- =========================== -->
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_offer_draw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:text="@string/offer_draw"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:background="@drawable/button_background"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btn_resign"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:text="@string/resign"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:background="@drawable/button_background_red"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+</RelativeLayout>

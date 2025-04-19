@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/grey"
+    android:weightSum="10"> <!-- This ensures proper distribution -->
+
+    <!-- Welcome Text (Takes some space at the top) -->
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="1067dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="@string/welcome_message"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Image (Takes more space to balance layout) -->
+
+    <!-- Username Input -->
+    <ImageView
+        android:layout_width="1089dp"
+        android:layout_height="97dp"
+        android:layout_gravity="center"
+        android:layout_weight="3"
+        android:contentDescription="@string/chess_background_desc"
+        android:scaleType="fitCenter"
+        android:src="@drawable/chessbackground"
+        tools:ignore="VisualLintBounds" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_username"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/username_hint"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#8B0000"
+        android:autofillHints="username"/>
+
+    <!-- Password Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_password"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#8B0000"
+        android:autofillHints="password"/>
+
+    <!-- Email Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_email"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints="emailAddress"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#8B0000" />
+
+    <!-- Buttons Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_background"
+            android:textColor="@color/black"
+            android:text="@string/register" />
+
+        <Button
+            android:id="@+id/btn_return"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:textColor="@color/black"
+            android:text="@string/return_to_start" />
+    </LinearLayout>
+</LinearLayout>

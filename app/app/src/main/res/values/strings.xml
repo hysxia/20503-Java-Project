@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">ChessBoard</string>
+    <string name="game">CHESS GAME</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="return_to_start">Return to Start</string>
+    <string name="return_to_home">Return to Home</string>
+    <string name="welcome_message">Welcome to our Chess Game!</string>
+    <string name="enter_username">Please enter your username:</string>
+    <string name="enter_password">Please enter your password:</string>
+    <string name="enter_email">Please enter your email address:</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="chess_background_desc">Chess board background</string>
+    <string name="welcome_back">Welcome back to our Chess Game!</string>
+    <string name="welcome_home">Enjoy :)</string>
+    <string name="start_game">Start Game</string>
+    <string name="user_results">Show Results</string>
+    <string name="your_results">Your Results</string>
+    <string name="progress_bar">Progress Bar</string>
+    <string name="game_results">Game Results</string>
+    <string name="wins">Wins</string>
+    <string name="draws">Draws</string>
+    <string name="loses">Loses</string>
+    <string name="white_player">White Player</string>
+    <string name="black_player">Black Player</string>
+    <string name="offer_draw">Offer Draw</string>
+    <string name="resign">Resign</string>
+    <string name="turn">Turn</string>
+</resources>
