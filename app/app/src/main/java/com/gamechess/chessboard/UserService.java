@@ -32,7 +32,7 @@ public class UserService {
                     String errorMessage;
                     if (!response.isSuccessful()) {
                         if (response.code() == 401) {
-                           //massage that explaind the error
+                            //massage that explaind the error
                             errorMessage = "Invalid username or password.";
                         } else {
                             //automatic massage for all other error
@@ -53,15 +53,18 @@ public class UserService {
         });
     }
     //function for registering a new user
-    public void register(String username, String email, String password, final UserService.UserCallback<User> callback) {
+    public void register(String username, String email, String password,
+                         final UserService.UserCallback<User> callback) {
+
         Call<User> call = userApi.register(username, email, password);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-
+                String massError = "";
                 if (response.errorBody() != null) {
                     try {
-                        System.out.println("Error body: " + response.errorBody().string());
+                        massError = response.errorBody().string();   
+                        System.out.println("Error body: " + massError); 
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -70,19 +73,31 @@ public class UserService {
                 if (response.isSuccessful() && response.body() != null) {
                     callback.onSuccess(response.body());
                 } else {
-                    String errorMessage = "Register failed.";
+                    String errorMessage;
+
                     if (!response.isSuccessful()) {
-                        if (response.code() == 409) {
-                            errorMessage = "Email is already registered.";
-                        } else if (response.code() == 400) {
+
+                        if (response.code() == 409) {           // Conflict
+                            if (massError.contains("USERNAME_EXISTS")) {
+                                errorMessage = "Username already exists.";
+                            } else if (massError.contains("EMAIL_EXISTS")) {
+                                errorMessage = "Email is already registered.";
+                            } else {
+                                errorMessage = "Conflict: " + massError;
+                            }
+
+                        } else if (response.code() == 400) {    // Bad Request
                             errorMessage = "Invalid email format.";
-                        } else {
+
+                        } else {                                // Other codes
                             errorMessage = "Error " + response.code() + ": Registration failed.";
                         }
-                    } else if (response.body() == null) {
+
+                    } else { // response.body() == null
                         errorMessage = "Response body is null.";
                     }
-                    callback.onFailure(errorMessage);
+
+                    callback.onFailure(errorMessage);           // <-- CHANGE #2: uses parsed message
                 }
             }
 
@@ -126,7 +141,7 @@ public class UserService {
             }
         });
     }
-//getting the wins of the user
+    //getting the wins of the user
     public void getWins(String username, final UserCallback<Integer> callback) {
         Call<Integer> call = userApi.getWins(username);
         call.enqueue(new Callback<Integer>() {
