@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
+//server side of the user operations
 @Service
 public class UserService  {
     @Autowired
@@ -28,19 +29,22 @@ public class UserService  {
     }
     // function to register a user
     public User registerUser(String username, String email, String rawPassword) {
+        if (userRepository.findByUsername(username) != null) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT,"USERNAME_EXISTS");
+        }
         if (!isValidEmail(email)) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid email format.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
         // Duplicate email check
         if (userRepository.findByEmail(email) != null) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already registered.");
+            throw new ResponseStatusException(HttpStatus.CONFLICT,"EMAIL_EXISTS");
         }
         User user = createUser(username, email, rawPassword);
         saveUser(user);
         return user;
     }
-    //checks if a email is valid
+    //checks if the email is valid
     private boolean isValidEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
         return email != null && email.matches(regex);
@@ -48,8 +52,8 @@ public class UserService  {
     //function to check login for the user
     public User login(String userName, String passWord) {
         User user = userRepository.findByUsername(userName);
+        //checks that if the user exists or the password is wrong
         if (user == null || !user.getPassword().equals(passWord)) {
-
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid username or password");
         }
         return user;
