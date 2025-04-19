@@ -11,9 +11,11 @@ Part 1 -server
 4) In the server folder under the folder resources you will find a file named application.properties,
     in the file change the 3 lines of code:
    spring.datasource.url=jdbc:mysql://localhost:3306/chessdb ( the part of chessdb change to a different database if you wish to)
+   
    spring.datasource.username="YOUR USERNAME"(usually its root if you didn't change it)
+   
     spring.datasource.password="YOUR PASSWORD"(change to the database password)
-5) After installing and changing the code you can run the ChessGameApplication .
+6) After installing and changing the code you can run the ChessGameApplication .
  
 Part 2 -client (android studio emulator)
 1) Download android studio from
