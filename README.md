@@ -28,3 +28,12 @@ Part 2 -client (android studio emulator)
 6) After installing at least 2 different emulators at the top you will have the type of emulator that you will run after pressing start under it press select multiple devices, and you may choose how many emulators you will open in one click.
 7) After choosing you can press the run button after that all the emulators that you choose will start to run wait for them to open, during the first time opening it may take a little bit of time.
 8)When everything is done and the start screen is shown on your emulators, you can register/login and start playing.
+
+Players 
+we added at the first run on the server two users will be automatically created , so that after opening the emulator you can login with these users or register with your own
+USER 1:
+username:alice
+password:password1
+USER 2:
+username:bob  
+password:password2
